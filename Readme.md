@@ -2,7 +2,7 @@
 
 A multilingual, multi page maternity care website built in AngularJS
 
-[Demo](https://envisagecyberart.in/projects/websites/babyprog/)
+[Demo](https://envisagecyberart.in/projects/websites/babyprogress/)
 
 ![Screenshot1](Screenshot-1.png?raw=true)
 
