@@ -1,0 +1,387 @@
+<style type="text/css">
+
+	body {
+		background-color: #fff;
+		background-size: 100%;
+	}
+
+	.container{
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 1em;
+	}
+
+	.wrapper {
+		border-radius: 5px;
+		box-shadow: 0 0 20px 0 rgba(82, 82, 82, 0.7);
+	}
+
+	.wrapper > *{
+		padding: 1em;
+	}
+
+	.Fermer{
+		float: right;
+	}
+
+	.Page {
+		width:90%;
+		margin:auto;
+	}
+
+	.Menu {
+		width:100%;
+	   display:inline-block;
+	   color:#525252;
+	   font-size:14px;
+	   font-weight:300;
+	}
+
+
+	.Gauche {
+		float: left;
+		margin-top:20px;
+		color:#525252;
+		text-decoration:none;
+		list-style:none;
+		margin-left:10%;
+	}
+
+
+	.MenuTexte {
+		float: right;
+		margin-top:20px;
+		color:#525252;
+		text-decoration:none;
+		list-style:none;
+	}
+
+
+	.MenuTexte ul li {
+		display:inline-block;
+		margin-left:10px;
+		font-size:12px;
+		color:#525252;
+		text-decoration:none;
+		list-style:none;
+		}
+
+
+	.MenuTexte a ul li{
+		color:#525252;
+		font-weight: 300;
+		text-decoration:none;
+		list-style:none;
+	}
+
+
+	.MenuTexte ul li a:hover, .over {
+		color: #fe6f37 !important;
+		text-decoration:none !important;
+		list-style: none !important;
+	}
+
+
+	a {
+		text-decoration:none;
+		color:inherit;
+	}
+
+	a:hover {
+		text-decoration:underline;
+	}
+
+
+	.Ingenieur {
+		width:90%;
+		font-weight:300;
+		color:#525252;
+		font-size:14px;
+		font-weight:300;
+	}
+
+	.BlocTexte {
+		width:90%;
+		font-weight:300;
+		color:#525252;
+		font-size:12px;
+		display: flex;
+		vertical-align:top;
+	}
+
+
+	.BlocGauche {
+		float:left;
+		width:48%;
+		margin-right:15px;
+		font-weight:300;
+		color:#525252;
+		font-size:12px;
+		text-align:right;
+		vertical-align:top;
+		
+	}
+
+	.BlocDroite {
+		float:right;
+		width:48%;
+		margin-left:15px;
+		font-weight:300;
+		color:#525252;
+		font-size:12px;
+		text-align:left;
+		vertical-align:top;
+		
+	}
+
+	.dark-grey{
+		color: #525252;
+	}
+
+
+	#bouton {
+		color:#fff !important;
+		border-radius:20px;
+		background-color:#fe6f37;
+		font-size:24px;
+		font-weight:300;
+		line-height:30px;
+		padding:7px 30px;
+		text-decoration:none;
+	}
+
+	#bouton:hover{
+		background-color:#212121;
+		color:#fff;
+		text-decoration:none;
+	}
+
+	#fond {
+		overflow-y: scroll;
+		top:0;
+		height: 100%;
+		width: 100%;
+	   position:absolute;
+	   z-index:1;
+	   background-color:#fff;
+	   display:none;
+	   border-radius: 10px;
+	}
+
+	h1 {
+		font-size:28px;
+		font-weight:300;
+		color:#525252;
+	}
+
+	h2 {
+		font-size:18px;
+		font-weight:400;
+		color:#525252;
+	}
+
+	/*Formulaire*/
+	.formulaire{
+		background-color: rgba(144, 102, 159, 0.3);
+		text-align: center;
+		border-radius: 5px;
+	}
+
+		.formulaire form{
+			display: grid;
+		}
+
+		.formulaire form label{
+			display: block;
+			margin-top: 1.5em;
+			text-align: left;
+			padding-left: 1em;
+		}
+
+		.formulaire form input, .formulaire form select{
+			width: 90%;
+			padding: 0.5em;
+		}
+
+		.formulaire form button {
+			color:#fff;
+			border-radius:20px;
+			background-color:#fe6f37;
+			font-size:24px;
+			font-weight:300;
+			line-height:25px;
+			padding:0.2em 0.6em;
+			text-decoration:none;
+		}
+
+	.Foot {
+		width:75%;
+		background-color:#eeeced;
+	}
+
+
+	footer {
+		width:90%;
+		display:inline;
+	}
+
+
+
+	@media (max-width: 536px){
+		.MenuTexte{
+			margin-top:0px;
+		}
+		.Gauche{
+			margin-top:0px;
+		}
+		.BlocTexte {
+			display:block;
+		}
+		.BlocDroite {
+			float:none;
+			text-align:center;
+			width:90%;
+			margin-right:0;
+		}
+		.BlocGauche {
+			float:none;
+			text-align:center;
+			width:90%;
+			margin-right:0;
+		}
+	}
+		
+	@media (min-width: 536px){
+		.MenuTexte{
+			margin-top:20px;
+		}
+		.Gauche{
+			margin-top:0px;
+		}
+	}
+
+</style>	
+		
+<div class="Page">
+    <div class="Menu">
+		<div class="Gauche" class="col-1"><a ui-sref="home"><img src="images/Logo_Babyprogress_HD.png" alt="Babyprogress" id="logo" width="200px"></a></div>
+		<div class="col-11">
+			<div class="MenuTexte" class="cote">
+				<ul>
+					<li><a ui-sref="patiente">{{'professionnel.topMenu1' | translate}}</a></li>
+					<li><a href ng-click="showModal()" id="bouton" class="over" style="font-size:15px">{{'professionnel.topMenu2' | translate}}</a></li>
+					<li>
+						<span title="English (US)" ng-click="langChange('en')" class="flag-icon flag-icon-us"></span>
+						<span title="Français" ng-click="langChange('fr')" class="flag-icon flag-icon-fr"></span>
+						<span title="Español" ng-click="langChange('es')" class="flag-icon flag-icon-es"></span>
+					</li>
+					<!-- <li>
+						<select name="lang" id="lang">
+						  <option value="">-- Select Language --</option>
+						  <option value="professeur">Language 1</option>
+						  <option value="monsieur">Language 2</option>
+						  <option value="madame">Language 3</option>
+						</select>               
+					</li> -->
+				</ul>
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="Page">
+    <div class="Menu">
+		<div class="Gauche" class="col-1"><h2><p>{{'professionnel.mainHeading' | translate}}</p></h2></div>
+		<div class="col-11">
+			<div class="MenuTexte">
+				<ul>
+					<li ng-class="{'over': currTab == 1}"><a ng-click="currTab = 1" ui-sref="prof.gyn">{{'professionnel.menu1' | translate}}</a></li>
+					<li ng-class="{'over': currTab == 2}"><a ng-click="currTab = 2" ui-sref="prof.rad">{{'professionnel.menu2' | translate}}</a></li>
+					<li ng-class="{'over': currTab == 3}"><a ng-click="currTab = 3" ui-sref="prof.sage">{{'professionnel.menu3' | translate}}</a>
+					<li ng-class="{'over': currTab == 4}"><a ng-click="currTab = 4" ui-sref="prof.gen">{{'professionnel.menu4' | translate}}</a></li>
+					<li ng-class="{'over': currTab == 5}"><a ng-click="currTab = 5" ui-sref="prof.autre">{{'professionnel.menu5' | translate}}</a></li>
+				</ul>
+			</div>
+		</div>
+    </div>
+	<HR size="1px" align="center" width="90%" color="#525252" noshade></HR>
+</div>
+
+<center><img src="images/Professionnels/Professionnels_Fond.jpg" alt="Professionnels" width="100%"></center>
+
+<div id="fond">
+	<div class="container">
+		<div class="Fermer" ng-click="hideModal()">
+			<a href class="close">
+				<img src="images/Patiente/Fermer.png">
+			</a>
+		</div>
+	    <div class="wrapper">
+		    <div class="formulaire" id="formulaire">
+		        <h3 class="dark-grey">{{'autre.formTitle' | translate}}</h3>
+		        <form>
+		            <div>
+		                <label for="qualification">{{'autre.formField1' | translate}} :</label>
+		                <select ng-options="o.name for o in autreForm.qualOpts" name="qualification" id="qualification" ng-model="autreForm.qual" required>
+		                    <option value="">-- {{'autre.formField1Default' | translate}} --</option>
+		                </select>
+		            </div>
+		            <div>
+		                <label for="lastName">{{'autre.formField2' | translate}} :</label>
+		                <input type="text" id="lastName" required ng-model="autreForm.nom"/>
+		            </div>
+		            <div>
+		                <label for="firstName">{{'autre.formField3' | translate}} :</label>
+		                <input type="text" id="firstName" required ng-model="autreForm.prenom"/>
+		            </div>
+		            <div>
+		                <label for="institution">{{'autre.formField4' | translate}} :</label>
+		                <input type="text" id="institution" ng-model="autreForm.etab"/>
+		            </div>
+		            <div>
+		                <label for="medical-speciality">{{'autre.formField5' | translate}} :</label>
+		                <select name="medical-speciality" id="medical-speciality"  ng-options="o.name for o in autreForm.specOpts" name="qualification" id="qualification" ng-model="autreForm.spec" required>
+		                    <option value="">-- {{'autre.formField5Default' | translate}} --</option>
+		                </select>
+		            </div>
+		            <div>
+		                <label for="country">{{'autre.formField6' | translate}} :</label>
+		                <input type="text" id="country" ng-model="autreForm.pays" />
+		            </div>
+		            <div>
+		                <label for="city">{{'autre.formField7' | translate}} :</label>
+		                <input type="text" id="city" ng-model="autreForm.ville" />
+		            </div>
+		            <div>
+		                <label for="email">{{'autre.formField8' | translate}} :</label>
+		                <input type="email" id="email" ng-model="autreForm.email" required/>
+		            </div>
+		            <div>
+		                <label for="phone">{{'autre.formField9' | translate}} :</label>
+		                <input type="text" id="phone" ng-model="autreForm.tel" required/>
+		            </div>
+		            <div class="button">
+		                <button ng-click="submitAutreForm()" type="submit" style="cursor:pointer; border:0px; margin-top:25px;" value="Activer">{{'autre.formSubmitText' | translate}}</button>
+		            </div>
+		        </form>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<div class="Page">
+	<div ui-view></div>
+</div>
+
+<footer>
+	<br/>
+	<center><div class="BlocGauche">
+	<p><font color="#000">Babyprogress©2018</font></p>
+	</div>
+	<div class="BlocDroite">
+		<a href="https://www.facebook.com/Birth.engineers/"><img src="images/FB.png" width="25px"></a>
+		<a href="https://twitter.com/Baby_Progress"><img src="images/Twitter.png" width="25px"></a>
+		<a href="mailto:question@babyprogress.fr"><img src="images/Mail.png" width="28px"></a>
+	</div></center>
+</footer>

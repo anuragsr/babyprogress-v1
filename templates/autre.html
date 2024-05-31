@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="wrapper">
+        <div class="formulaire" id="formulaire">
+            <h3 class="dark-grey">{{'autre.formTitle' | translate}}</h3>
+            <form>
+                <div>
+                    <label for="qualification">{{'autre.formField1' | translate}} :</label>
+                    <select ng-options="o.name for o in autreForm.qualOpts" name="qualification" id="qualification" ng-model="autreForm.qual" required>
+                        <option value="">-- {{'autre.formField1Default' | translate}} --</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="lastName">{{'autre.formField2' | translate}} :</label>
+                    <input type="text" id="lastName" required ng-model="autreForm.nom"/>
+                </div>
+                <div>
+                    <label for="firstName">{{'autre.formField3' | translate}} :</label>
+                    <input type="text" id="firstName" required ng-model="autreForm.prenom"/>
+                </div>
+                <div>
+                    <label for="institution">{{'autre.formField4' | translate}} :</label>
+                    <input type="text" id="institution" ng-model="autreForm.etab"/>
+                </div>
+                <div>
+                    <label for="medical-speciality">{{'autre.formField5' | translate}} :</label>
+                    <select name="medical-speciality" id="medical-speciality"  ng-options="o.name for o in autreForm.specOpts" name="qualification" id="qualification" ng-model="autreForm.spec" required>
+                        <option value="">-- {{'autre.formField5Default' | translate}} --</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="country">{{'autre.formField6' | translate}} :</label>
+                    <input type="text" id="country" ng-model="autreForm.pays" />
+                </div>
+                <div>
+                    <label for="city">{{'autre.formField7' | translate}} :</label>
+                    <input type="text" id="city" ng-model="autreForm.ville" />
+                </div>
+                <div>
+                    <label for="email">{{'autre.formField8' | translate}} :</label>
+                    <input type="email" id="email" ng-model="autreForm.email" required/>
+                </div>
+                <div>
+                    <label for="phone">{{'autre.formField9' | translate}} :</label>
+                    <input type="text" id="phone" ng-model="autreForm.tel" required/>
+                </div>
+                <div class="button">
+                    <button ng-click="submitAutreForm()" type="submit" style="cursor:pointer; border:0px; margin-top:25px;" value="Activer">{{'autre.formSubmitText' | translate}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

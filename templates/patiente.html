@@ -1,0 +1,883 @@
+<style type="text/css">
+
+	body {
+		background:url(images/Patiente/Fond_Patientes.jpg) top center no-repeat;
+		background-size: 100%;
+	}
+
+	#fond {
+	   position:absolute;
+	   z-index:9000;
+	   background-color:#000;
+	   display:none;
+	   border-radius: 10px;
+	}
+
+	.popup {
+	   position:fixed;
+	   width:100%;
+	   display:none;
+	   z-index:9999;
+	   border-radius: 10px;
+	   background-color: white;
+	   font-weight:300;
+	   margin:auto;
+	}
+
+	#modal {
+	   width:50%;
+	}
+	
+	#modalInner {
+	   width:50%;
+	}
+
+	#modalVideo {
+	   width:70%;
+	   text-align:left;
+	}
+
+	#modalVideoInner {
+	   margin-top: 20px;		
+	   width:70%;
+	   text-align:left;
+	}
+
+	.Fermer {
+		float: right;
+	}
+
+	.video-container {
+		position: relative;
+		padding-bottom: 56.5%;
+		height: 0;
+		overflow: hidden;
+		margin:auto;
+		margin-top: 20px;
+		left:8%;
+	}
+
+	.video-container iframe,  
+	.video-container object,  
+	.video-container embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 90%;
+		height: 90%;
+		margin:auto;
+	}
+
+	.fixNavigation {
+	    padding: 0 5.3%;
+	    background: #fff;
+		height: 98px;
+		top: 0;
+		left:0;
+		right:0;
+	    z-index: 1500;
+		position: fixed;
+		transition: all .8s cubic-bezier(.25, .46, .45, .94);
+		
+	}
+
+
+	#navigation {
+		padding: 0 5.3%;
+	    top: 0;
+		left:0;
+		right:0;
+		position: fixed;
+		width:90%;
+		font-weight:300;
+	}
+
+
+	.on {
+	    background:url(images/Patiente/FlecheUp.png) left top no-repeat;
+		top: 0;
+	    z-index: 1000;
+		width:100%;
+	}
+
+	.back_to_top {
+		z-index: 1;
+	    top: 80%;
+		left:90%;
+		right:0;
+		position: fixed;
+		width:10%;
+		font-weight:300;
+	}
+
+
+	.MenuNav {
+		width:100%;
+		margin:auto;
+		padding-top:5%;
+	}
+
+
+	.Page {
+		width:75%;
+		margin:auto;
+	}
+
+	.LesEtapes {
+		width:100%;
+		background-color:#fff;
+		margin:auto;
+	}
+
+	.FAQ {
+		width:100%;
+		background-color:#fff;
+		margin:auto;
+	}
+
+	.Accueil {
+		width:90%;
+		margin-top:100px;
+	}
+
+
+
+	.Menu {
+		width:75%;
+	   display: flex;
+	   color:#525252;
+	   font-size:14px;
+	   margin-top:5px;   
+	}
+
+
+
+	.MenuTexte {
+		float: right;
+		margin-top: 30px;
+		color:#525252;
+		text-decoration:none;
+		list-style:none;
+	}
+
+
+	.MenuTexte ul li {
+		line-height: 24px;
+		display:inline;
+		margin-left:10px;
+		font-size:12px;
+		font-weight:300;
+		color:#525252;
+		text-decoration:none;
+		list-style:none;
+		}
+
+
+	.MenuTexte a ul li{
+		color:#525252;
+		padding:7px 20px;
+		color: #525252;
+		font-weight: 300;
+		text-decoration:none;
+		list-style:none;
+	}
+
+
+	.MenuTexte ul li a:hover, .over {
+		color: #90669F;
+		text-decoration:none;
+		list-style: none;
+	}
+
+
+	a {
+		text-decoration:none;
+		color:inherit;
+	}
+
+	a:hover {
+		text-decoration:none;
+		color:#90669F;
+	}
+
+
+	.Barre {
+		height:100%;
+		background:url(images/Patiente/Barre.png);
+	}
+
+
+	.TexteSIM37 {
+		width:40%;
+		font-weight:300;
+		color:#525252;
+		font-size:12px;
+		text-align:left;
+		margin:auto;
+		padding-top:50px;
+		padding-bottom:50px;
+		margin-top:70px;
+		
+	}
+
+
+	.SIM37 {
+		width:50%;
+		float:right;
+	}
+
+
+	.BlocTexte {
+		width:100%;
+		padding-top:100px;
+		padding-bottom:100px;
+	}
+
+
+	.BlocTexteFAQ {
+		width:80%;
+		display: inline-block;
+	}
+
+
+	.BlocVideo {
+		width:75%;
+		display:flex;
+		padding-bottom:100px;
+		padding-top:80px;
+		padding-left:20%;
+	}
+
+
+	.QuestionFAQ {
+		width:70%;
+		display:flex;
+		margin-left:25px;
+	}
+
+	.Barre {
+		margin-top:110px;
+		width:1px;
+		display:inline-block;
+	}
+
+	.BlocGaucheFAQ {
+		width:40%;
+		float:left;
+		font-weight:300;
+		color:#525252;
+		font-size:12px;
+		text-align:left;
+		margin-top:100px;
+	}
+
+
+	.BlocDroiteFAQ {
+		width:40%;
+		float:right;
+		font-weight:300;
+		color:#525252;
+		font-size:16px;
+		text-align:left;
+		margin-top:100px;
+		text-decoration:none;
+		list-style:none;
+	}
+
+
+	.BlocGauche {
+		width:50%;
+		float:left;
+		font-weight:300;
+		color:#525252;
+		font-size:12px;
+		text-align:center;
+		
+	}
+
+	.BlocDroite {
+		width:40%;
+		float:right;
+		font-weight:300;
+		color:#525252;
+		font-size:12px;
+		text-align:left;
+		padding-bottom:50px;
+	}
+
+
+	.TexteEtapes {
+		padding-top:2%;
+		font-weight:300;
+		color:#525252;
+		font-size:14px;
+		text-align:center;
+	}
+
+
+	.TexteFAQ {
+		padding-top:2%;
+		font-weight:300;
+		color:#525252;
+		font-size:14px;
+		text-align:center;
+	}
+
+
+	.Foot {
+		width:75%;
+		margin-right:50px;
+		display: flex;
+		background-color:#eeeced;
+	}
+
+
+	#bouton, .bouton {
+		color:#fff;
+		border-radius:20px;
+		background-color:#54CAF2;
+		font-size:24px;
+		font-weight:400;
+		line-height:30px;
+		padding:7px 20px;
+		text-decoration:none;
+	}
+
+	#bouton:hover, .bouton:hover{
+		background-color:#212121;
+		color:#fff;
+		text-decoration:none;
+	}
+
+
+	#AncreEtapes, #AncreFAQ, #AncrePelvi, #AncreDangereux, #AncreEcho, #AncreScan, #AncreQuand, #AncreComment, #AncrePrescription, #AncreOu, #AncreMapporte, #AncreMapportePas, #AncreRembourser, #AncreDate {
+		padding-top:98px;
+		position: relative;
+		top: -100px;
+		margin-bottom: -100px;
+	}
+
+
+
+	h1 {
+		font-size:28px;
+		font-weight:300;
+		color:#525252;
+	}
+
+	h2 {
+		font-size:18px;
+		font-weight:400;
+		color:#525252;
+	}
+
+	h3 {
+		font-size:18px;
+		font-weight:300;
+		color:#525252;
+	}
+
+	h4 {
+		font-size:30px;
+		font-weight:400;
+		color:#90669F;
+	}
+
+
+	#burger {
+		display:none;
+		float:left;
+		width:20%;
+		}
+
+
+
+	footer {
+		width:90%;
+		display:inline;
+	}
+
+
+
+	.side-nav{
+		height: 40%;
+		width: 0px;
+		position: fixed;
+		z-index: 9998;
+		top:125px;
+		left: 0;
+		background-color:#525252;
+		opacity: 0.9;
+		overflow-x: hidden;
+		padding-top: 30px;
+		transition: 0.5s;
+		vertical-align: middle;
+	}
+
+	.side-nav a{
+		padding: 5px 5px 5px 100px;
+		text-decoration: none;
+		font-size: 22px;
+		color: #fff;
+		display: block;
+		transition: 0.3s;
+		font-weight: 300;
+		font-size: 14px;
+	}
+
+	.side-nav a:hover{
+		color:#000;
+	}
+
+	.side-nav .btn-close{
+		position: absolute;
+		top: 0;
+		font-size: 25px;
+		margin-left: 150px;
+	}
+
+
+	.VideoEtapes {
+		width:80%;
+	}
+
+
+
+	@media(max-width: 800px){
+		.MenuTexte{display: none;}
+		.VideoEtapes {
+			width:100%;
+		}
+		.fixNavigation {
+			height:138px;
+		}
+		#modal {
+			width:90%;
+		}		
+		#modalInner {
+			width:90%;
+		}
+		#modalVideo {
+			width:90%;
+		}		
+		#modalVideoInner {
+			width:90%;
+		}
+		.BlocTexte {
+			padding-top:10px;
+		}
+		.BlocVideo {
+			width:100%;
+			display:block;
+			margin-left:0;
+			padding-top:0px;
+			padding-bottom:100px;
+			padding-left:5%;
+		}
+		.VideoPresentation {
+			width:70%;
+			padding-right:100px;
+			padding-left:15%;
+			padding-bottom:50px;
+		}
+		.on {
+			background:url(images/Patiente/FlecheUp.png) center top no-repeat;
+			background-size:80%;
+	}
+		.back_to_top {
+			top: 95%;
+			left:45%;
+			right:0;
+			width:10%;
+		}
+		.BlocTexteFAQ {
+			display:block;
+			width:100%;
+		}
+		.BlocGaucheFAQ {
+			width:95%;
+			text-align:center;
+			margin-top:50px;
+			margin-bottom:100px;
+		}
+		.BlocDroiteFAQ {
+			width:90%;
+			text-align:left;
+			margin-top:50px;
+			margin-bottom:50px;
+		}
+		.Barre {
+			display:none;
+		}
+		.MenuTexte{display: none;}
+		.open-slide{display:inline}
+	}
+
+	@media (min-width: 800px){
+		.MenuTexte{display: inline;}
+		.open-slide{display: none;}
+		.TexteSIM37{
+			float:right;
+			width:50%;
+			padding-top:50px;
+		}
+		.VideoEtapes {
+			width:50%;
+		}
+		.fixNavigation {
+			height:98px;
+		}
+		#modalVideo {
+			width:70%;
+		}	
+		#modalVideoInner {
+			width:70%;
+		}
+		.BlocTexte {
+			padding-top:100px;
+		}
+		.MenuTexte{display: inline;}
+		.open-slide{display: none;}
+	}
+
+
+
+	@media(max-width: 900px){
+		body{
+			background-position:top;
+			background-size:1200px;
+			background-image:url(images/Patiente/Fond_Patientes_Alpha40.png)
+		}
+		.TexteSIM37{
+			float:center;
+			width:90%;
+			padding-top:100px;
+		}
+	}
+
+	@media (min-width: 900px){
+		body{
+			background-size:100%;
+		}
+	}
+</style>
+
+<div id="fond" ng-click="hideModalVideo(); hideModal();"></div>
+<div id="modal" class="popup"></div>
+<div id="modalContent" style="display: none;">
+  <div class="Fermer">
+    <a href class="close">
+      <img src="images/Patiente/Fermer.png">
+    </a>
+  </div>
+  <center>
+    <div id="modalInner">
+      <p>
+        <img src="images/LogoSIM37.png" width="100%">
+      </p>
+      <p>{{'patiente.modalText1' | translate}}</p>
+      <p>{{'patiente.modalText2' | translate}}:</p>
+      <p>
+        <font color="#54CAF2">01 45 00 78 12</font>
+      </p>
+      <br/>
+      <p>{{'patiente.modalText3' | translate}}:</p>
+      <p>
+        <a href="mailto:question@babyprogress.fr">
+          <font color="#90669F">question@babyprogress.fr</font>
+        </a>
+      </p>
+    </div>
+  </center>
+</div>
+
+<div id="modalVideo" class="popup"></div>
+<div id="modalVideoContent" style="display:none">
+	<div class="Fermer">
+		<a href class="close">
+			<img src="images/Patiente/Fermer.png">
+		</a>
+	</div>
+	<center>
+		<div class="modalVideoInner">
+			<div class="video-container">
+				<iframe width="560" height="315" src="https://www.youtube.com/embed/qawfk3V6xws?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+			</div>
+			<h3>
+				<font color="#90669F">{{'patiente.modalVideoText1' | translate}}</font>
+			</h3>
+			<p>
+				{{'patiente.modalVideoText2' | translate}}
+			</p>
+		</div>
+	</center>
+</div>
+
+<div id="AncreAccueil">
+</div>
+		
+<div class="MenuNav">	
+	<div id="navigation">
+        <center>
+        	<div class="Menu">
+				<div class="col-1"><a ui-sref="home"><img src="images/Logo_Babyprogress_HD.png" alt="Babyprogress" id="logo" width="200px"></a></div>
+				<div class="col-11">
+					<div class="MenuTexte">
+						<ul>
+							<li><a ui-sref="patiente">{{'patiente.topMenu1' | translate}}</a></li>
+							<li><a ui-sref="prof.default">{{'patiente.topMenu2' | translate}}</a></li>
+							<li><a href ng-click="scrollToEl('AncreEtapes')">{{'patiente.topMenu3' | translate}}</a></li>
+							<li><a href ng-click="scrollToEl('AncreFAQ')">{{'patiente.topMenu4' | translate}}</a></li>
+							<li>
+								<span title="English (US)" ng-click="langChange('en')" class="flag-icon flag-icon-us"></span>
+								<span title="Français" ng-click="langChange('fr')" class="flag-icon flag-icon-fr"></span>
+								<span title="Español" ng-click="langChange('es')" class="flag-icon flag-icon-es"></span>
+							</li>
+							<!-- <li>
+								<select name="lang" id="lang">
+								  <option value="">-- Select Language --</option>
+								  <option value="professeur">Language 1</option>
+								  <option value="monsieur">Language 2</option>
+								  <option value="madame">Language 3</option>
+								</select>               
+							</li> -->
+						</ul>
+					</div>
+				</div>
+	    	</div>
+    	</center>		
+		<div class="open-slide">
+			<a href="#" onclick="openSideMenu()">
+				<img src="images/menu.png" width="35px">
+			</a>
+		</div>
+		<HR size="1px" align="center" width="100%" color="#525252" noshade></HR>
+	</div>	
+</div>
+
+<div id="side-menu" class="side-nav">
+	<a href="#" class="btn-close" onclick="closeSideMenu()">&times;</a>
+	<a ui-sref="patiente">{{'patiente.topMenu1' | translate}}</a>
+	<a ui-sref="prof.default">{{'patiente.topMenu2' | translate}}</a>
+	<a href ng-click="scrollToEl('AncreEtapes')">{{'patiente.topMenu3' | translate}}</a>
+	<a href ng-click="scrollToEl('AncreFAQ')">{{'patiente.topMenu4' | translate}}</a>
+</div>
+
+<div class="back_to_top">
+	<a href ng-click="scrollToEl(null)">
+		<img src="images/Patiente/FlecheUp.png" style="opacity:0">
+	</a>
+	<a href ng-click="showModal()" class="bouton show"><span class="fa fa-pencil-square-o"></span></a>
+</div>				
+<div class="Page">
+	<div class="TexteSIM37">		
+		<center><p><img src="images/LogoSIM37.png" width="50%"></p></center>
+		<h2>{{'patiente.headingText' | translate}}</h2>
+		<p>{{'patiente.subHeadingText' | translate}}</p>
+		<br/>
+		<center><p><a href ng-click="showModal()" id="show" class="bouton" style="font-size:15px" >{{'patiente.headingButtonText' | translate}}</a></p><center>
+	</div>
+</div>
+			
+<div class="BlocVideo">
+	<div class="VideoPres"><center><a href ng-click="showModalVideo()" id="showVideo"><img src="images/Patiente/Screen_VideoPresentation.png" width="30%" class="VideoPresentation" align="left"></a></center></div>
+	<div class="FlecheEtapes"><p><center><a href ng-click="scrollToEl('AncreEtapes')"><p><h3>{{'patiente.downButtonText' | translate}}</h3></p>
+	<img src="images/Patiente/Fleche.png" width="50px"></a></center></p></div>	
+</div>
+
+<div id="AncreEtapes">
+</div>
+	
+<div class="LesEtapes">
+	<div class="TexteEtapes">
+		<center>
+			<p><h4>{{'patiente.section1Title' | translate}}</h4></p>
+			<HR size="1px" align="center" width="5%" color="#525252" noshade></HR>
+			<br/>
+			<br/>
+				<img src="images/Patiente/Simuloup01.png" width="200px">
+				<img src="images/Patiente/Simuloup02.png" width="260px">
+				<img src="images/Patiente/Simuloup03.png" width="260px">
+				<img src="images/Patiente/Simuloup04.png" width="200px">
+			<br/>
+			
+			<div class="VideoEtapes">
+				<p><video src="videos/Babyprogress_SIM37.mp4" controls="controls" width="100%" poster="images/Patiente/Video_Image3D.jpg">{{'patiente.section1VideoTitle' | translate}}</video></p>
+			</div>
+			<br/>
+			<br/>
+			<HR size="1px" align="center" width="75%" color="#525252" noshade></HR>
+			<br/>
+			<br/>
+			<p>{{'patiente.section2Title' | translate}}:
+			<font color="#54CAF2"><a href="http://monsim37.fr">www.monsim37.fr</a></font></p>
+			<p><a href="http://monsim37.fr"><img src="images/Patiente/Carobebe.png" width="250px"></a>
+			<HR size="1px" align="center" width="75%" color="#525252" noshade></HR></p>
+		</center>	
+	</div>
+</div>
+
+<div id="AncreFAQ">
+</div>
+
+<div class="FAQ">
+	<div class="TexteFAQ">
+		<center>
+			<p><h4>{{'patiente.section3Title' | translate}}</h4></p>
+			<HR size="1px" align="center" width="5%" color="#525252" noshade></HR>
+			<br/>
+		</center>		
+		<div class="BlocTexteFAQ">
+			<div class="BlocDroiteFAQ">
+				<p><a href ng-click="scrollToEl('AncreDangereux')">
+					{{'patiente.section3Ques1' | translate}}
+				</a></p>
+				
+				<p><a href ng-click="scrollToEl('AncreEcho')">
+					{{'patiente.section3Ques2' | translate}}
+				</a></p>
+				
+				<p><a href ng-click="scrollToEl('AncreScan')">
+					{{'patiente.section3Ques3' | translate}}
+				</a></p>
+				
+				<p><a href ng-click="scrollToEl('AncrePelvi')">
+					{{'patiente.section3Ques4' | translate}}
+				</a></p>
+				
+				<p><a href ng-click="scrollToEl('AncreQuand')">
+					{{'patiente.section3Ques5' | translate}}
+				</a></p>
+				
+				<p><a href ng-click="scrollToEl('AncreComment')">
+					{{'patiente.section3Ques6' | translate}}
+				</a></p>
+				
+				<p><a href ng-click="scrollToEl('AncrePrescription')">
+					{{'patiente.section3Ques7' | translate}}
+				</a></p>
+				
+				<p><a href ng-click="scrollToEl('AncreOu')">
+					{{'patiente.section3Ques8' | translate}}
+				</a></p>
+				
+				<p><a href ng-click="scrollToEl('AncreMapporte')">
+					{{'patiente.section3Ques9' | translate}}
+				</a></p>
+				
+				<p><a href ng-click="scrollToEl('AncreMapportePas')">
+					{{'patiente.section3Ques10' | translate}}
+				</a></p>
+				
+				<p><a href ng-click="scrollToEl('AncreRembourser')">
+					{{'patiente.section3Ques11' | translate}}
+				</a></p>
+
+				<p><a href ng-click="scrollToEl('AncreDate')">
+					{{'patiente.section3Ques12' | translate}}
+				</a></p>
+			</div>
+
+			<div class="Barre"><img src="images/Patiente/Barre.png" width="100%"></div>
+			
+			<div class="BlocGaucheFAQ">
+			
+				<div id="AncreDangereux"></div>
+				<p><h2>{{'patiente.section3Ques1' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans1' | translate}}</p>
+				
+				
+				<br/>
+				
+				<div id="AncreEcho"></div>
+				<p><h2>{{'patiente.section3Ques2' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans2' | translate}}</p>
+				
+				
+				<br/>
+				
+				<div id="AncreScan"></div>
+				<p><h2>{{'patiente.section3Ques3' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans3' | translate}}</p>
+				
+				
+				<br/>
+				
+				<div id="AncrePelvi"></div>
+				<p><h2>{{'patiente.section3Ques4' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans4' | translate}}</p>
+				
+				
+				<br/>
+				
+				<div id="AncreQuand"></div>
+				<p><h2>{{'patiente.section3Ques5' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans5' | translate}}</p>
+				
+				
+				<br/>
+				
+				<div id="AncreComment"></div>
+				<p><h2>{{'patiente.section3Ques6' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans6' | translate}}</p>
+				
+				
+				<br/>
+				
+				<div id="AncrePrescription"></div>
+				<p><h2>{{'patiente.section3Ques7' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans7' | translate}}</p>
+				
+				
+				<br/>
+				
+				<div id="AncreOu"></div>
+				<p><h2>{{'patiente.section3Ques8' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans8' | translate}}</p>
+				
+				
+				<br/>
+				
+				<div id="AncreMapporte"></div>
+				<p><h2>{{'patiente.section3Ques9' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans9' | translate}}</p>
+				
+				
+				<br/>
+				
+				<div id="AncreMapportePas"></div>
+				<p><h2>{{'patiente.section3Ques10' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans10' | translate}}</p>
+				
+				
+				<br/>
+				
+				<div id="AncreRembourser"></div>
+				<p><h2>{{'patiente.section3Ques11' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans11' | translate}}</p>
+				
+				
+				<br/>
+				
+				<div id="AncreDate"></div>
+				<p><h2>{{'patiente.section3Ques12' | translate}}</h2></p>
+				<p>{{'patiente.section3Ans12' | translate}}</p>
+								
+			</div>
+			
+		</div>
+	</div>
+</div>
+<footer>
+	<br/>
+	<center><div class="BlocGauche">
+	<p><font color="#000">Babyprogress©2018</font></p>
+	</div>
+
+	<div class="BlocDroite">
+		<a href="https://www.facebook.com/Birth.engineers/"><img src="images/FB.png" width="25px"></a>
+		<a href="https://twitter.com/Baby_Progress"><img src="images/Twitter.png" width="25px"></a>
+		<a href="mailto:question@babyprogress.fr"><img src="images/Mail.png" width="28px"></a>
+	</div></center>
+</footer>
+	

@@ -1,0 +1,11 @@
+We have a website intended for medical professionals and patients. 
+
+We have a website in html/css/js and we would like its forms to be registered in a dedicated database to which only the site administrators will have access. A summary of each form will be sent to a specific email address. We also want our site to be available in several languages. 
+
+We want our site to be displayed in the user's navigator’s language, if his language is not available, the site will be displayed by default in English (en-us). We want to be able to add languages as we go along. To do this, we want each block of text (paragraph, title, button...) to be indexed in a spreadsheet, with the initial elements in the left column and their translations into the different languages on the right (one column per language). To add a new language, we would add a new column in the spreadsheet and fill the boxes with translations of the new language. 
+Furthermore, we want the choice of languages to be displayed on all pages with small flags that would change the language if clicked. Three flags are displayed: English, French and Spanish, followed by a drop-down list to select the languages that are not displayed. 
+
+Currently we have a website in french, we would like you to: 
+-make the forms submit to a database 
+-make it so that when a form is submitted, a summary is sent to a specific email address 
+-give us the ability to translate the site in other languages from a spreadsheet
